@@ -7,9 +7,15 @@ body {
 
 header {
     text-align: center;
-    background-color: #333;
+    background-color: #023047; /* Dark Blue */
     color: white;
     padding: 10px 0;
+}
+
+.banner {
+    position: relative;
+    text-align: center;
+    color: white;
 }
 
 .banner img {
@@ -22,21 +28,43 @@ header {
 .banner h1 {
     margin: 0;
     font-size: 2.5em;
+    position: relative;
 }
 
 .banner p {
     margin: 0;
     font-size: 1.2em;
     padding-bottom: 10px;
+    position: relative;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+}
+
+nav {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: #023047; /* Dark Blue */
+    z-index: 1000;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
@@ -44,14 +72,17 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    background-color: #219ebc; /* Blue */
+    border-radius: 5px;
 }
 
 main {
     padding: 20px;
+    background-color: #8ecae6; /* Light Blue */
 }
 
 main section {
@@ -60,16 +91,30 @@ main section {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #219ebc; /* Blue */
 }
 
 footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #333;
+    background-color: #023047; /* Dark Blue */
     color: white;
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+.back-to-top {
+    display: block;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 0.9em;
+    color: #fb8500; /* Orange */
+    text-decoration: none;
+}
+
+.back-to-top:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 600px) {
@@ -81,9 +126,12 @@ footer {
         font-size: 1em;
     }
     
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
     nav ul li {
-        display: block;
         margin: 10px 0;
     }
 }
-
